@@ -1,167 +1,484 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT Portfolio | AI & Research Engineer</title>
+    <title>Gobi | AI & Research Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        /* Biến màu sắc */
         :root {
-            --bg-color: #0f172a;
-            --nav-bg: rgba(15, 23, 42, 0.9);
-            --text-color: #e2e8f0;
-            --accent-color: #38bdf8;
-            --card-bg: #1e293b;
+            --navy: #0a192f;
+            --light-navy: #112240;
+            --lightest-navy: #233554;
+            --slate: #8892b0;
+            --light-slate: #a8b2d1;
+            --white: #e6f1ff;
+            --green: #64ffda;
+            --font-sans: 'Inter', sans-serif;
+            --font-mono: 'Fira Code', monospace;
         }
 
-        html { scroll-behavior: smooth; } /* Tạo hiệu ứng cuộn mượt */
+        * {
+            box-sizing: border-box;
+            transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--navy);
+            color: var(--slate);
+            font-family: var(--font-sans);
             margin: 0;
-            padding-top: 70px; /* Tránh bị che mất nội dung bởi Top Bar */
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* --- TOP NAVIGATION BAR --- */
+        /* --- SOCIAL SIDEBAR --- */
+        .social-sidebar {
+            width: 40px;
+            position: fixed;
+            bottom: 0;
+            left: 40px;
+            right: auto;
+            z-index: 10;
+        }
+
+        .social-sidebar ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .social-sidebar li { margin-bottom: 20px; }
+        .social-sidebar li:last-of-type { margin-bottom: 30px; }
+
+        .social-sidebar a {
+            padding: 10px;
+            color: var(--light-slate);
+            display: inline-block;
+        }
+
+        .social-sidebar a:hover {
+            color: var(--green);
+            transform: translateY(-3px);
+        }
+
+        .social-sidebar svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .social-sidebar::after {
+            content: "";
+            display: block;
+            width: 1px;
+            height: 90px;
+            margin: 0 auto;
+            background-color: var(--light-slate);
+        }
+
+        .status-badge {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--green);
+            border: 1px solid var(--green);
+            padding: 3px 8px;
+            border-radius: 12px;
+        }
+
+        .company-card {
+            border-top: 4px solid var(--green); /* Highlights professional work */
+        }
+
+        .side-card {
+            border-top: 4px solid var(--slate); /* Keeps side projects subtle */
+        }
+
+        /* --- NAVIGATION --- */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: var(--nav-bg);
+            height: 80px;
+            background: rgba(10, 25, 47, 0.85);
             backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid #334155;
+            z-index: 11;
+            display: flex;
+            align-items: center;
+            padding: 0 50px;
         }
+
         .nav-container {
-            max-width: 1000px;
-            margin: 0 auto;
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
         }
-        .logo { font-weight: bold; color: var(--accent-color); font-size: 1.2rem; }
-        .nav-links { list-style: none; display: flex; margin: 0; padding: 0; }
-        .nav-links li { margin-left: 20px; }
+
+        .nav-links { 
+            display: flex; 
+            list-style: none; 
+            margin: 0; 
+            padding: 0; 
+            font-family: var(--font-mono);
+            font-size: 13px;
+        }
+
+        .nav-links li { 
+            margin-left: 30px; 
+            counter-increment: item;
+        }
+        
         .nav-links a {
             text-decoration: none;
-            color: var(--text-color);
-            font-size: 0.95rem;
-            transition: 0.3s;
+            color: var(--white);
+            padding: 10px;
         }
-        .nav-links a:hover { color: var(--accent-color); }
+
+        .nav-links a:hover { color: var(--green); }
+
+        .nav-links li::before {
+            content: "0" counter(item) ".";
+            margin-right: 5px;
+            color: var(--green);
+        }
+        /* Styling for the new image logo */
+        .nav-logo-img {
+            width: 42px; /* Standard size for a professional navbar logo */
+            height: 42px;
+            border-radius: 50%; /* Makes it circular */
+            border: 2px solid var(--green); /* Adds the signature green ring */
+            object-fit: cover; /* Ensures the face isn't stretched */
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-logo-img:hover {
+            transform: scale(1.1); /* Subtle zoom on hover */
+            filter: brightness(1.1);
+        }
+
+        /* Ensure the logo link doesn't have extra padding/decoration */
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+
+        /* --- LAYOUT --- */
+        .container { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding: 0 100px; 
+        }
+
+        section { 
+            padding: 100px 0; 
+            max-width: 900px;
+        }
 
         /* --- HERO SECTION --- */
-        header {
-            text-align: center;
-            padding: 80px 20px;
-        }
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 3px solid var(--accent-color);
-            object-fit: cover;
-            margin-bottom: 20px;
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100vh;
         }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        section { padding: 60px 0; border-bottom: 1px solid #1e293b; }
-        h1 { font-size: 2.5rem; margin: 10px 0; }
-        h2 { color: var(--accent-color); margin-bottom: 30px; }
-        
-        /* Grid Layout */
+        .hero span {
+            font-family: var(--font-mono);
+            color: var(--green);
+            margin-bottom: 20px;
+            font-size: clamp(14px, 5vw, 16px);
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 8vw, 80px);
+            font-weight: 700;
+            color: var(--white);
+            margin: 0;
+        }
+
+        .hero h2 {
+            font-size: clamp(30px, 6vw, 60px);
+            color: var(--slate);
+            margin-top: 10px;
+            line-height: 0.9;
+        }
+
+        .hero p {
+            max-width: 540px;
+            margin-top: 25px;
+        }
+
+        /* --- SECTION HEADERS --- */
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin: 10px 0 40px;
+            width: 100%;
+            font-size: clamp(26px, 5vw, 32px);
+            white-space: nowrap;
+            color: var(--white);
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            position: relative;
+            width: 300px;
+            height: 1px;
+            margin-left: 20px;
+            background-color: var(--lightest-navy);
+        }
+
+        /* --- PROJECT & BLOG CARDS --- */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        .card {
-            background: var(--card-bg);
-            padding: 25px;
-            border-radius: 12px;
-            transition: transform 0.3s;
-        }
-        .card:hover { transform: translateY(-5px); }
-        .tag {
-            background: #0ea5e9; color: white;
-            font-size: 0.75rem; padding: 3px 8px;
-            border-radius: 4px; margin-right: 5px;
+            gap: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         }
 
-        footer { text-align: center; padding: 40px; color: #64748b; }
-        
-        /* Responsive cho điện thoại */
-        @media (max-width: 600px) {
-            .nav-links { display: none; } /* Ẩn menu trên mobile để đơn giản hóa */
+        /* Links styling for cards */
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .card {
+            background-color: var(--light-navy);
+            padding: 2rem;
+            border-radius: 4px;
+            position: relative;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            background-color: var(--lightest-navy);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .folder-icon { color: var(--green); }
+        .external-icon { color: var(--light-slate); }
+
+        .card h3 {
+            color: var(--white);
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        .card p { font-size: 14px; color: var(--slate); }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .tag {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--green);
+            margin-right: 15px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+        }
+
+        footer a {
+            color: var(--slate);
+            text-decoration: none;
+        }
+
+        footer a:hover { color: var(--green); }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 25px; }
+            nav { padding: 0 25px; }
+            .nav-links { display: none; }
+            .social-sidebar { display: none; }
         }
     </style>
 </head>
 <body>
 
+    <!-- LEFT SIDEBAR ICONS -->
+    <div class="social-sidebar">
+        <ul>
+            <li>
+                <a href="https://github.com/Gobiilee" target="_blank" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/gobi17082002/" target="_blank" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+            </li>
+            <li>
+                <a href="tel:+84911947397" aria-label="Phone">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </a>
+            </li>
+        </ul>
+    </div>
+
     <nav>
         <div class="nav-container">
-            <div class="logo">DevPortfolio</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
+            <a href="#" class="logo">
+            <img src="profile.png" alt="Logo" class="nav-logo-img">
+            </a>
+            <ul class="nav-links" style="counter-reset: item 0;">
                 <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Project</a></li>
-                <li><a href="https://github.com/Gobiilee" target="_blank">Code</a></li>
                 <li><a href="#blog">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <header id="home">
-        <img src="profile.png" alt="Profile Picture" class="profile-img">
-        <h1>Gobi</h1>
-        <p style="color: #94a3b8;">AI Researcher | Computer Vision Enthusiast</p>
-    </header>
-
     <div class="container">
+        <header class="hero" id="home">
+            <span>Hi, my name is</span>
+            <h1>Gobi.</h1>
+            <h2>I build things for the machine.</h2>
+            <p>I’m an AI Researcher specializing in Computer Vision. Currently, I'm focused on building high-performance deep learning systems that bridge the gap between research and production.</p>
+        </header>
+
         <section id="about">
-            <h2>About Me</h2>
-            <p>Chào mừng bạn đến với không gian làm việc của tôi. Tôi tập trung vào việc nghiên cứu Deep Learning và triển khai các hệ thống Computer Vision thực tế. Với nền tảng về Toán và kỹ thuật lập trình Python, tôi luôn tìm cách tối ưu hóa các mô hình AI để đạt hiệu suất cao nhất trong sản xuất.</p>
+            <h2 class="section-title">About Me</h2>
+            <p>Hello! My interest in AI started back in college when I realized Python could be used to make sense of complex visual data. Fast-forward to today, and I've had the privilege of working on diverse projects—from medical blister inspection to real-time face recognition.</p>
+            <p>Here are a few technologies I’ve been working with recently:</p>
+            <ul style="display: grid; grid-template-columns: repeat(2, minmax(140px, 200px)); list-style: none; padding: 0; font-family: var(--font-mono); font-size: 13px;">
+                <li style="position: relative; padding-left: 20px;">
+                    <span style="color: var(--green); position: absolute; left: 0;">▹</span> Python
+                </li>
+                <li style="position: relative; padding-left: 20px;">
+                    <span style="color: var(--green); position: absolute; left: 0;">▹</span> OpenCV
+                </li>
+                <li style="position: relative; padding-left: 20px;">
+                    <span style="color: var(--green); position: absolute; left: 0;">▹</span> TensorRT
+                </li>
+                <li style="position: relative; padding-left: 20px;">
+                    <span style="color: var(--green); position: absolute; left: 0;">▹</span> C++
+                </li>
+            </ul>
         </section>
 
-        <section id="projects">
-            <h2>Projects</h2>
+        <section id="experience">
+            <!-- 1. PROFESSIONAL WORK SECTION -->
+            <h2 class="section-title">Professional Experience</h2>
+            <p style="margin-bottom: 30px;">Industrial solutions where I led research, logic design, and deployment. (Source code proprietary)</p>
+            
             <div class="grid">
-                <div class="card">
-                    <h3>IMEDI Blister Inspection</h3>
-                    <p>Hệ thống phát hiện lỗi vỉ thuốc bằng OpenCV. Sử dụng Binary Inverse Threshold để lọc vùng tối (pixel < 90).</p>
-                    <span class="tag">Python</span><span class="tag">OpenCV</span>
-                </div>
-                <div class="card">
-                    <h3>Real-time Face Recognition</h3>
-                    <p>Triển khai nhận diện khuôn mặt tối ưu hóa qua TensorRT giúp tăng tốc độ xử lý lên 300%.</p>
-                    <span class="tag">TensorRT</span><span class="tag">C++</span>
-                </div>
+                <!-- Company Project: IMEDI -->
+                <a href="experience/IMediBlister.html" class="card-link">
+                    <div class="card company-card">
+                        <div class="card-header">
+                            <div class="folder-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                            </div>
+                            <span class="status-badge">Industrial Deployment</span>
+                        </div>
+                        <h3>IMEDI Blister Inspection</h3>
+                        <p>Designed a real-time defect detection system for pharmaceutical packaging. Optimized inference for high-speed production lines.</p>
+                        <div class="tag-container">
+                            <span class="tag">Python</span>
+                            <span class="tag">TensorRT</span>
+                            <span class="tag">Industrial Logic</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <section id="projects">
+            <!-- 2. SIDE PROJECTS & RESEARCH SECTION -->
+            <h2 class="section-title" style="margin-top: 80px;">Research & Side Projects</h2>
+            <p style="margin-bottom: 30px;">Personal experiments focused on learning new frameworks and algorithmic optimization.</p>
+
+            <div class="grid">
+                <!-- Side Project: Quant / SMA -->
+                <a href="https://github.com/Gobiilee/" class="card-link" target="_blank">
+                    <div class="card side-card">
+                        <div class="card-header">
+                            <div class="folder-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            </div>
+                        </div>
+                        <h3>Quant SMA Indicator</h3>
+                        <p>Implementation of Simple Moving Average indicators for quantitative trading. Focused on vectorized calculations with Pandas.</p>
+                        <div class="tag-container">
+                            <span class="tag">Quant</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">GitHub</span>
+                        </div>
+                    </div>
+                </a>
             </div>
         </section>
 
+        <!-- BLOG SECTION -->
         <section id="blog">
-            <h2>Latest Blog Posts</h2>
-            <div class="card" style="margin-bottom: 15px;">
-                <h4>Cách tối ưu hóa Resume bằng LaTeX</h4>
-                <p style="font-size: 0.9rem; color: #94a3b8;">Chia sẻ cách giảm padding và tinh chỉnh layout chuyên nghiệp...</p>
-                <a href="#" style="color: var(--accent-color); font-size: 0.8rem;">Đọc thêm →</a>
+            <h2 class="section-title">Latest Blog Posts</h2>
+            <div class="grid">
+                <!-- Change the href to your new filename -->
+                <a href="blog/sma_indicator.html" class="card-link">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="folder-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                            </div>
+                        </div>
+                        <h3>Understanding SMA in Quant</h3>
+                        <p>A deep dive into the mathematical foundation and algorithmic implementation of SMA for trend-following strategies.</p>
+                        <div class="tag-container">
+                            <span class="tag">Quant</span>
+                            <span class="tag">Python</span>
+                        </div>
+                    </div>
+                </a>
             </div>
         </section>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:contact@yourdomain.com">contact@yourdomain.com</a></p>
+        <section id="contact" style="text-align: center; max-width: 600px; margin: 0 auto;">
+            <h2 style="font-family: var(--font-mono); color: var(--green); font-size: 16px; margin-bottom: 20px;">04. What's Next?</h2>
+            <h2 style="font-size: clamp(40px, 5vw, 60px); color: var(--white);">Get In Touch</h2>
+            <p>My inbox is always open. Whether you have a question about Computer Vision or just want to say hi, I’ll try my best to get back to you!</p>
+            <a href="mailto:contact@yourdomain.com" style="display: inline-block; margin-top: 50px; padding: 1.25rem 1.75rem; border: 1px solid var(--green); border-radius: 4px; color: var(--green); font-family: var(--font-mono); text-decoration: none;">Say Hello</a>
         </section>
-    </div>
 
-    <footer>
-        <p>&copy; 2026 Portfolio.</p>
-    </footer>
+        <footer>
+            <a href="https://github.com/Gobiilee" target="_blank">
+                Designed & Built by Gobi<br>
+                Inspired by Brittany Chiang
+                © 2026
+            </a>
+        </footer>
+    </div>
 
 </body>
 </html>

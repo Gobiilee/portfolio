@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMA Indicator in Quant | Gobi's Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a192f;
+            --light-navy: #112240;
+            --slate: #8892b0;
+            --light-slate: #a8b2d1;
+            --white: #e6f1ff;
+            --green: #64ffda;
+            --font-sans: 'Inter', sans-serif;
+            --font-mono: 'Fira Code', monospace;
+        }
+
+        body {
+            background-color: var(--navy);
+            color: var(--slate);
+            font-family: var(--font-sans);
+            margin: 0;
+            padding: 100px 20px;
+            line-height: 1.7;
+        }
+
+        .blog-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            color: var(--green);
+            font-family: var(--font-mono);
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 30px;
+        }
+
+        h1 { color: var(--white); font-size: clamp(30px, 5vw, 48px); line-height: 1.1; margin-bottom: 10px; }
+        .metadata { font-family: var(--font-mono); font-size: 13px; color: var(--green); margin-bottom: 40px; }
+
+        h2 { color: var(--white); margin-top: 50px; border-bottom: 1px solid var(--lightest-navy); padding-bottom: 10px; }
+        p { margin-bottom: 25px; font-size: 18px; }
+
+        /* Code Block Styling */
+        pre {
+            background-color: var(--light-navy);
+            padding: 20px;
+            border-radius: 4px;
+            overflow-x: auto;
+            border-left: 3px solid var(--green);
+            margin: 30px 0;
+        }
+        code { font-family: var(--font-mono); color: var(--light-slate); font-size: 14px; }
+
+        .math-box {
+            background: rgba(100, 255, 218, 0.05);
+            padding: 20px;
+            border-radius: 4px;
+            text-align: center;
+            color: var(--white);
+            font-family: var(--font-mono);
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="blog-container">
+        <a href="../index.html" class="back-link">← Back to Portfolio</a>
+        
+        <header>
+            <h1>Understanding SMA in Quantitative Trading</h1>
+            <div class="metadata">May 2026 — Quantitative Finance — 6 min read</div>
+        </header>
+
+        <section class="content">
+            <p>In the world of Quantitative Finance, the <strong>Simple Moving Average (SMA)</strong> is the "Hello World" of technical indicators. While basic, it forms the backbone of sophisticated trend-following algorithms and momentum strategies.</p>
+
+            <h2>The Mathematics</h2>
+            <p>The SMA is the unweighted mean of the previous $n$ data points. If we represent the closing price at time $t$ as $P_t$, the SMA for a period $n$ is calculated as:</p>
+            
+            <div class="math-box">
+                SMA = (P₁ + P₂ + ... + Pₙ) / n
+            </div>
+
+            <h2>Why it matters in Quant</h2>
+            <p>Quant traders use SMA primarily to smooth out price action and identify the underlying trend. By removing the "noise" of daily volatility, we can identify support and resistance levels more clearly. However, the SMA is a <strong>lagging indicator</strong>—it reacts to price changes rather than predicting them.</p>
+
+            <h2>Implementation in Python</h2>
+            <p>For industrial-grade backtesting, we typically use the <code>pandas</code> library for vectorized calculations:</p>
+
+            <pre><code>import pandas as pd
+
+def calculate_sma(data, window=20):
+    """
+    Calculates the Simple Moving Average
+    """
+    return data['close'].rolling(window=window).mean()
+
+# Example Usage
+df['SMA_50'] = calculate_sma(df, window=50)
+df['SMA_200'] = calculate_sma(df, window=200)</code></pre>
+
+            <h2>Strategy: The Golden Cross</h2>
+            <p>One of the most famous quantitative signals is the <strong>Golden Cross</strong>. This occurs when a short-term SMA (e.g., 50-day) crosses above a long-term SMA (e.g., 200-day). This signal is often used as a bullish indicator to enter long positions.</p>
+        </section>
+
+        <footer style="margin-top: 100px; border-top: 1px solid var(--light-navy); padding-top: 20px;">
+            <p style="font-size: 14px;">Thanks for reading. If you're interested in AI-driven trading systems, stay tuned for my next post on Reinforcement Learning in Finance.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
