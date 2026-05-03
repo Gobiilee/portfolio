@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Portfolio | AI & Research Engineer</title>
+    <style>
+        /* Biến màu sắc */
+        :root {
+            --bg-color: #0f172a;
+            --nav-bg: rgba(15, 23, 42, 0.9);
+            --text-color: #e2e8f0;
+            --accent-color: #38bdf8;
+            --card-bg: #1e293b;
+        }
+
+        html { scroll-behavior: smooth; } /* Tạo hiệu ứng cuộn mượt */
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding-top: 70px; /* Tránh bị che mất nội dung bởi Top Bar */
+        }
+
+        /* --- TOP NAVIGATION BAR --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #334155;
+        }
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        .logo { font-weight: bold; color: var(--accent-color); font-size: 1.2rem; }
+        .nav-links { list-style: none; display: flex; margin: 0; padding: 0; }
+        .nav-links li { margin-left: 20px; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent-color); }
+
+        /* --- HERO SECTION --- */
+        header {
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-color);
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        section { padding: 60px 0; border-bottom: 1px solid #1e293b; }
+        h1 { font-size: 2.5rem; margin: 10px 0; }
+        h2 { color: var(--accent-color); margin-bottom: 30px; }
+        
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); }
+        .tag {
+            background: #0ea5e9; color: white;
+            font-size: 0.75rem; padding: 3px 8px;
+            border-radius: 4px; margin-right: 5px;
+        }
+
+        footer { text-align: center; padding: 40px; color: #64748b; }
+        
+        /* Responsive cho điện thoại */
+        @media (max-width: 600px) {
+            .nav-links { display: none; } /* Ẩn menu trên mobile để đơn giản hóa */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">DevPortfolio</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Project</a></li>
+                <li><a href="https://github.com/yourusername" target="_blank">Code</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="home">
+        <img src="profile.png" alt="Profile Picture" class="profile-img">
+        <h1>Gobi</h1>
+        <p style="color: #94a3b8;">AI Researcher | Computer Vision Enthusiast</p>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Chào mừng bạn đến với không gian làm việc của tôi. Tôi tập trung vào việc nghiên cứu Deep Learning và triển khai các hệ thống Computer Vision thực tế. Với nền tảng về Toán và kỹ thuật lập trình Python, tôi luôn tìm cách tối ưu hóa các mô hình AI để đạt hiệu suất cao nhất trong sản xuất.</p>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>IMEDI Blister Inspection</h3>
+                    <p>Hệ thống phát hiện lỗi vỉ thuốc bằng OpenCV. Sử dụng Binary Inverse Threshold để lọc vùng tối (pixel < 90).</p>
+                    <span class="tag">Python</span><span class="tag">OpenCV</span>
+                </div>
+                <div class="card">
+                    <h3>Real-time Face Recognition</h3>
+                    <p>Triển khai nhận diện khuôn mặt tối ưu hóa qua TensorRT giúp tăng tốc độ xử lý lên 300%.</p>
+                    <span class="tag">TensorRT</span><span class="tag">C++</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog">
+            <h2>Latest Blog Posts</h2>
+            <div class="card" style="margin-bottom: 15px;">
+                <h4>Cách tối ưu hóa Resume bằng LaTeX</h4>
+                <p style="font-size: 0.9rem; color: #94a3b8;">Chia sẻ cách giảm padding và tinh chỉnh layout chuyên nghiệp...</p>
+                <a href="#" style="color: var(--accent-color); font-size: 0.8rem;">Đọc thêm →</a>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:contact@yourdomain.com">contact@yourdomain.com</a></p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Portfolio.</p>
+    </footer>
+
+</body>
+</html>
