@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantitative Research Roadmap | Gobi's Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a192f;
+            --light-navy: #112240;
+            --lightest-navy: #233554;
+            --slate: #8892b0;
+            --light-slate: #a8b2d1;
+            --white: #e6f1ff;
+            --green: #64ffda;
+            --font-sans: 'Inter', sans-serif;
+            --font-mono: 'Fira Code', monospace;
+        }
+
+        body {
+            background-color: var(--navy);
+            color: var(--slate);
+            font-family: var(--font-sans);
+            margin: 0;
+            padding: 100px 20px;
+            line-height: 1.7;
+        }
+
+        .blog-container {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            color: var(--green);
+            font-family: var(--font-mono);
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 30px;
+        }
+
+        h1 { color: var(--white); font-size: clamp(30px, 5vw, 42px); line-height: 1.1; margin-bottom: 10px; }
+        .metadata { font-family: var(--font-mono); font-size: 13px; color: var(--green); margin-bottom: 40px; }
+
+        h2 { color: var(--white); margin-top: 60px; border-bottom: 1px solid var(--lightest-navy); padding-bottom: 10px; }
+        h3 { color: var(--light-slate); margin-top: 30px; }
+        
+        p { margin-bottom: 25px; font-size: 18px; }
+
+        /* Roadmap List Styling */
+        .roadmap-step {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 40px;
+            border-left: 2px solid var(--lightest-navy);
+        }
+
+        .roadmap-step::before {
+            content: "";
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--navy);
+            border: 2px solid var(--green);
+        }
+
+        .roadmap-step h4 {
+            color: var(--white);
+            margin: 0 0 10px 0;
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .highlight-box {
+            background: var(--light-navy);
+            padding: 25px;
+            border-radius: 4px;
+            border-left: 4px solid var(--green);
+            margin: 30px 0;
+        }
+
+        code { font-family: var(--font-mono); color: var(--green); background: rgba(100, 255, 218, 0.1); padding: 2px 5px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+
+    <div class="blog-container">
+        <a href="../index.html#blog" class="back-link">← Back to Portfolio</a>
+        
+        <header>
+            <h1>Quantitative Research: A Modern Roadmap</h1>
+            <div class="metadata">May 2026 — Research — 8 min read</div>
+        </header>
+
+        <section class="content">
+            <p>Quantitative research in modern finance is the intersection of <strong>Mathematical Modeling</strong>, <strong>Computational Power</strong>, and <strong>Financial Theory</strong>. It focuses on using statistical methods to identify patterns in vast datasets that are invisible to the human eye.</p>
+
+            <div class="highlight-box">
+                "The goal is not to predict the future perfectly, but to find an edge that is statistically significant over a large sample size."
+            </div>
+
+            <h2>Core Methodologies</h2>
+            <p>In my research, particularly when dealing with high-frequency data, we utilize several key pillars:</p>
+            <ul>
+                <li><strong>Statistical Arbitrage:</strong> Finding price inefficiencies between related assets.</li>
+                <li><strong>Factor Modeling:</strong> Determining which variables (Interest rates, Volume, Sentiment) drive asset returns.</li>
+                <li><strong>Alternative Data:</strong> Integrating non-traditional sources like satellite imagery or NLP-based news sentiment.</li>
+            </ul>
+
+            <h2>The Quantitative Roadmap</h2>
+            <p>For those looking to bridge the gap between AI Engineering and Quantitative Finance, here is the structured path I follow:</p>
+
+            <div class="roadmap-container">
+                <div class="roadmap-step">
+                    <h4>Step 1: Mathematical Foundation</h4>
+                    <p>Master Linear Algebra and Multivariable Calculus. In Quant, we treat market data as vectors and matrices. Understanding <code>Eigenvalues</code> and <code>Stochastic Processes</code> is mandatory.</p>
+                </div>
+
+                <div class="roadmap-step">
+                    <h4>Step 2: Statistical Inference</h4>
+                    <p>Move beyond averages. Deep dive into Hypothesis Testing, Bayesian Inference, and Time-Series Analysis (ARIMA, GARCH). This is where we validate if a "pattern" is actually real or just noise.</p>
+                </div>
+
+                <div class="roadmap-step">
+                    <h4>Step 3: The Quant Stack</h4>
+                    <p>Mastering libraries like <code>NumPy</code>, <code>Pandas</code>, and <code>Scikit-Learn</code> for data manipulation. For execution, learning <code>C++</code> or <code>Rust</code> is critical when nanosecond latency matters.</p>
+                </div>
+
+                <div class="roadmap-step">
+                    <h4>Step 4: Backtesting & Risk</h4>
+                    <p>Designing robust frameworks to test strategies on historical data while accounting for <code>Slippage</code>, <code>Transaction Costs</code>, and <code>Overfitting</code>.</p>
+                </div>
+            </div>
+
+            <h2>Final Impression</h2>
+            <p>Quantitative research is a discipline of failure. Most hypotheses will fail. The "impression" comes from your ability to rigorously test, fail fast, and refine logic until you find a strategy that withstands the chaos of the live market.</p>
+        </section>
+
+        <footer style="margin-top: 80px; border-top: 1px solid var(--lightest-navy); padding-top: 20px; text-align: center;">
+            <p style="font-size: 14px;">Thanks for reading.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
