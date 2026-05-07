@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Management: Engineering Portfolio Growth | Gobi's Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a192f;
+            --light-navy: #112240;
+            --lightest-navy: #233554;
+            --slate: #8892b0;
+            --light-slate: #a8b2d1;
+            --white: #e6f1ff;
+            --green: #64ffda;
+            --font-sans: 'Inter', sans-serif;
+            --font-mono: 'Fira Code', monospace;
+        }
+
+        body {
+            background-color: var(--navy);
+            color: var(--slate);
+            font-family: var(--font-sans);
+            margin: 0;
+            padding: 100px 20px;
+            line-height: 1.7;
+        }
+
+        .blog-container { max-width: 750px; margin: 0 auto; }
+
+        .back-link {
+            color: var(--green);
+            font-family: var(--font-mono);
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 30px;
+        }
+
+        h1 { color: var(--white); font-size: clamp(30px, 5vw, 42px); line-height: 1.1; margin-bottom: 10px; }
+        .metadata { font-family: var(--font-mono); font-size: 13px; color: var(--green); margin-bottom: 40px; }
+
+        h2 { color: var(--white); margin-top: 60px; border-bottom: 1px solid var(--lightest-navy); padding-bottom: 10px; }
+        h3 { color: var(--light-slate); margin-top: 30px; font-family: var(--font-mono); font-size: 18px; }
+        
+        p { margin-bottom: 25px; font-size: 18px; }
+
+        .highlight-box {
+            background: var(--light-navy);
+            padding: 25px;
+            border-radius: 4px;
+            border-left: 4px solid var(--green);
+            margin: 30px 0;
+        }
+
+        .formula-box {
+            background: rgba(10, 25, 47, 0.5);
+            border: 1px solid var(--lightest-navy);
+            padding: 20px;
+            font-family: var(--font-mono);
+            color: var(--white);
+            border-radius: 4px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .step-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .step-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        .step-item::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--green);
+        }
+
+        code { font-family: var(--font-mono); color: var(--green); }
+    </style>
+</head>
+<body>
+
+    <div class="blog-container">
+        <a href="../index.html#blog" class="back-link">← Back to Blog</a>
+        
+        <header>
+            <h1>Risk Management: Engineering Capital Protection & Profit Optimization</h1>
+            <div class="metadata">May 2026 — Quantitative Finance — 7 min read</div>
+        </header>
+
+        <section class="content">
+            <p>In both AI Engineering and Finance, uncertainty is a constant variable. Investment is not about predicting the future with 100% certainty; it is a <strong>game of probabilities</strong>. To achieve sustainable growth, one must treat risk not as something to avoid, but as a parameter to be managed and optimized.</p>
+
+            <div class="highlight-box">
+                "Survival is the prerequisite for growth. A robust risk management framework ensures that even in 'Black Swan' events, your capital remains intact to trade another day."
+            </div>
+
+            <h2>1. The Core Framework: Probabilistic Thinking</h2>
+            <p>Market movements are stochastic. While we cannot control price, we can control our exposure. Effective management starts with <code>Stop-Loss</code> protocols and <code>Position Sizing</code>.</p>
+            <p>For example, high-volatility assets like Tesla require tighter exit logic. If a position violates its support level, the system must trigger an automatic liquidation to prevent a minor setback from becoming a catastrophic failure.</p>
+
+            <h2>2. Technical Analysis & Entry/Exit Optimization</h2>
+            <p>Technical analysis is the study of market behavior through price action. By identifying <strong>Support</strong> and <strong>Resistance</strong> levels, we can optimize our Risk/Reward ratio.</p>
+            
+            <ul class="step-list">
+                <li class="step-item"><strong>Support:</strong> The "floor" where buying pressure historically outweighs selling pressure.</li>
+                <li class="step-item"><strong>Resistance:</strong> The "ceiling" where profit-taking occurs.</li>
+            </ul>
+
+            <h2>3. Macro Analysis: The Global Context</h2>
+            <p>Individual assets do not move in a vacuum. Macroeconomic factors like interest rates, inflation, and credit cycles dictate the "market regime." When interest rates rise, the <code>Discount Rate</code> for future earnings increases, typically compressing valuations in growth sectors like Tech and Real Estate.</p>
+
+            <h2>4. Advanced Mitigation: Hedging & VaR</h2>
+            <p>For professional-grade portfolios, simple stop-losses are often insufficient. We employ advanced computational methods:</p>
+            
+            <h3>Hedging (Insurance)</h3>
+            <p>Utilizing derivatives like <code>Put Options</code> to neutralize downside risk. If the underlying asset drops, the option value increases, offsetting the loss.</p>
+
+            <h3>Value at Risk (VaR)</h3>
+            <p>A statistical technique used to measure the level of financial risk within a firm or portfolio over a specific time frame.</p>
+            
+            <div class="formula-box">
+                VaR(α) = inf { l ∈ ℝ : P(L > l) ≤ 1 - α }
+            </div>
+            <p style="font-size: 14px; text-align: center;">(Where L is the loss, and α is the confidence level)</p>
+
+            <h2>Conclusion</h2>
+            <p>Quantifying risk is the bridge between gambling and investing. By integrating technical indicators, macro context, and statistical tools like VaR, we transform market chaos into a manageable system of variables.</p>
+        </section>
+
+        <footer style="margin-top: 80px; border-top: 1px solid var(--lightest-navy); padding-top: 20px; text-align: center;">
+            <p style="font-size: 14px; font-family: var(--font-mono);">Thank you for your reading.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
