@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Vision Inspection: High-Precision Contact Lens QC | Gobi's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a192f;
+            --light-navy: #112240;
+            --lightest-navy: #233554;
+            --slate: #8892b0;
+            --light-slate: #a8b2d1;
+            --white: #e6f1ff;
+            --green: #64ffda;
+            --font-sans: 'Inter', sans-serif;
+            --font-mono: 'Fira Code', monospace;
+        }
+
+        body {
+            background-color: var(--navy);
+            color: var(--slate);
+            font-family: var(--font-sans);
+            margin: 0;
+            padding: 100px 20px;
+            line-height: 1.7;
+        }
+
+        .container { max-width: 800px; margin: 0 auto; }
+
+        .back-link {
+            color: var(--green);
+            font-family: var(--font-mono);
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 30px;
+        }
+
+        h1 { color: var(--white); font-size: clamp(32px, 5vw, 48px); line-height: 1.1; margin-bottom: 10px; }
+        .project-meta { font-family: var(--font-mono); color: var(--green); margin-bottom: 40px; font-size: 14px; }
+
+        h2 { color: var(--white); margin-top: 60px; border-bottom: 1px solid var(--lightest-navy); padding-bottom: 10px; }
+        h3 { color: var(--light-slate); margin-top: 30px; font-family: var(--font-mono); }
+
+        .highlight-box {
+            background: var(--light-navy);
+            padding: 25px;
+            border-radius: 4px;
+            border-left: 4px solid var(--green);
+            margin: 30px 0;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .tech-item {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--green);
+            background: rgba(100, 255, 218, 0.1);
+            padding: 5px 12px;
+            border-radius: 4px;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .metric-card {
+            background: var(--light-navy);
+            padding: 20px;
+            border-radius: 4px;
+            text-align: center;
+            border: 1px solid transparent;
+            transition: 0.3s;
+        }
+
+        .metric-card:hover { border-color: var(--green); }
+        .metric-value { color: var(--green); font-size: 28px; font-weight: bold; display: block; }
+        .metric-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--light-slate); }
+
+        code { color: var(--green); font-family: var(--font-mono); background: rgba(100,255,218,0.1); padding: 2px 4px; border-radius: 3px;}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="../index.html#projects" class="back-link">← Back to Portfolio</a>
+        
+        <header>
+            <h1>Industrial Vision: Contact Lens Inspection</h1>
+            <p class="project-meta">Computer Vision • JIT Optimization • Industrial Automation</p>
+            <ul class="tech-list">
+                <li class="tech-item">Python</li>
+                <li class="tech-item">OpenCV</li>
+                <li class="tech-item">Numba (JIT)</li>
+                <li class="tech-item">Multi-spectral Imaging</li>
+                <li class="tech-item">TCP/IP Sockets</li>
+            </ul>
+        </header>
+
+        <section>
+            <p>In high-precision manufacturing, detecting microscopic defects on transparent surfaces is a significant challenge. This project delivered a comprehensive <strong>Computer Vision Inspection System</strong> for contact lens production, replacing inconsistent manual labor with an automated, 24/7 high-speed solution.</p>
+
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <span class="metric-value">70ms</span>
+                    <span class="metric-label">Latency per Channel</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">98.2%</span>
+                    <span class="metric-label">Market-Ready Yield</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">12 Units</span>
+                    <span class="metric-label">Industrial Deployment</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">30+ Types</span>
+                    <span class="metric-label">Defects Classified</span>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Impact:</strong> Following successful trials, 12 inspection machines were integrated into a global export production line, ensuring 98.2% of products met international medical standards.
+            </div>
+
+            <h2>1. Multi-Spectral Data Fusion</h2>
+            <p>Transparent materials often hide flaws depending on the light angle. I engineered a pipeline that processes RAW frames across four distinct spectral channels:</p>
+            <ul>
+                <li><strong>BF (Bright Field):</strong> For primary structure and lens boundary identification.</li>
+                <li><strong>DF (Dark Field):</strong> Optimized for identifying surface scratches and microscopic dust.</li>
+                <li><strong>IR (Infrared):</strong> Utilized to penetrate material layers to detect internal cracks invisible to visible light.</li>
+            </ul>
+
+            <h2>2. Overcoming Python Latency with Numba JIT</h2>
+            <p>Standard Python loops are too slow for real-time industrial cycles. To achieve a <strong>70ms processing window</strong>, I utilized <code>Numba</code> to JIT-compile critical geometric functions directly into machine code.</p>
+            <p>Key optimizations included a <strong>Pre-Polar Transformation</strong> to "flatten" the circular lens for linear scanning and a vectorized <strong>Min-Distance Contour</strong> calculator that achieved a 50x speed increase over pure Python implementations.</p>
+
+            <h2>3. Robust Multi-threaded Architecture</h2>
+            <p>To maintain zero-downtime performance, the system architecture was built using a <strong>Worker-Manager Threading Model</strong>:</p>
+            <ul>
+                <li><strong>ManageThread:</strong> Decodes incoming TCP RAW packets and manages a load-balanced queue.</li>
+                <li><strong>InspectThread:</strong> Parallelized workers executing the CV pipeline (OpenCV/Numba) to prevent conveyor bottlenecks.</li>
+                <li><strong>Signal Synchronization:</strong> Implemented <code>threading.Event</code> and Mutex locks to eliminate race conditions during high-speed I/O.</li>
+            </ul>
+
+            <h2>4. Engineering for "Edge Cases"</h2>
+            <p>Industrial environments are unpredictable. I designed a <strong>Dynamic Alignment Algorithm</strong> (<code>LensLocation</code>) that automatically identifies the lens center and corrects for rotation/offset in real-time, ensuring sub-pixel accuracy even if the product is not perfectly centered.</p>
+
+            <h3>Key Roles & Timeline</h3>
+            <p>In a team of 5, I served as the <strong>Core Computer Vision Engineer</strong>, responsible for algorithm design and backend maintenance. 
+            <br><strong>Development:</strong> 2 weeks to prototype; 2 months to production-ready deployment.</p>
+        </section>
+
+        <footer style="margin-top: 100px; border-top: 1px solid var(--lightest-navy); padding-top: 20px;">
+            <p style="font-size: 14px; text-align: center;">Proprietary Technology — Deployed for Global Export Manufacturing.</p>
+        </footer>
+    </div>
+
+</body>
+</html>

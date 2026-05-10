@@ -1,0 +1,344 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustChain: Anti-Counterfeiting | Gobi's Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a192f;
+            --light-navy: #112240;
+            --lightest-navy: #233554;
+            --slate: #8892b0;
+            --light-slate: #a8b2d1;
+            --white: #e6f1ff;
+            --green: #64ffda;
+            --font-sans: 'Inter', sans-serif;
+            --font-mono: 'Fira Code', monospace;
+        }
+
+        body {
+            background-color: var(--navy);
+            color: var(--slate);
+            font-family: var(--font-sans);
+            margin: 0;
+            padding: 100px 20px;
+            line-height: 1.7;
+        }
+
+        .blog-container { max-width: 750px; margin: 0 auto; }
+
+        .back-link {
+            color: var(--green);
+            font-family: var(--font-mono);
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 30px;
+        }
+
+        h1 { color: var(--white); font-size: clamp(30px, 5vw, 42px); line-height: 1.1; margin-bottom: 10px; }
+        .metadata { font-family: var(--font-mono); font-size: 13px; color: var(--green); margin-bottom: 40px; }
+
+        h2 { color: var(--white); margin-top: 60px; border-bottom: 1px solid var(--lightest-navy); padding-bottom: 10px; }
+        h3 { color: var(--light-slate); margin-top: 30px; font-family: var(--font-mono); font-size: 18px; }
+        
+        p { margin-bottom: 25px; font-size: 18px; }
+
+        .highlight-box {
+            background: var(--light-navy);
+            padding: 25px;
+            border-radius: 4px;
+            border-left: 4px solid var(--green);
+            margin: 30px 0;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .tech-tag {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--green);
+            background: rgba(100, 255, 218, 0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+
+        .reference-section {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px dashed var(--lightest-navy);
+        }
+
+        .ref-link {
+            display: block;
+            color: var(--light-slate);
+            text-decoration: none;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        .ref-link:hover { color: var(--green); }
+        .ref-link span { color: var(--green); font-family: var(--font-mono); margin-right: 10px; }
+
+        code { font-family: var(--font-mono); color: var(--green); }
+    </style>
+</head>
+<body>
+
+    <div class="blog-container">
+        <a href="../index.html#blog" class="back-link">← Back to Portfolio</a>
+        
+        <header>
+            <h1>TrustChain: A Low-Cost, Blockchain-Powered Anti-Counterfeiting Protocol</h1>
+            <div class="metadata">May 2026 — Research & Development — 10 min read</div>
+            <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">OpenCV</span>
+                <span class="tech-tag">Solidity</span>
+                <span class="tech-tag">Polygon L2</span>
+                <span class="tech-tag">PyQt5</span>
+            </div>
+        </header>
+
+        <section class="content">
+            <p>In a globalized economy, counterfeiting has evolved into a multi-billion dollar crisis. From pharmaceuticals to luxury goods, the "trust gap" is widening. Traditional high-end solutions like NFC or holograms are effective but often prohibitively expensive for mass-market adoption.</p>
+
+            <div class="highlight-box">
+                <strong>TrustChain</strong> is a "Phygital" solution combining Blockchain transparency with Computer Vision verification to create an immutable chain of trust at a fraction of standard hardware costs.
+            </div>
+
+            <h2>The Core Problem: Why QR Codes Fail</h2>
+            <p>Static QR codes are easily photocopied. A counterfeiter can scan a genuine code and replicate it on 1,000 fake units. Without a way to distinguish the <em>physical identity</em> of the print or a <em>one-time activation</em> logic, the system remains vulnerable.</p>
+
+            <h2>The "Double-Layer" Protocol</h2>
+            <p>TrustChain utilizes a hybrid verification approach:</p>
+            
+            <h3>1. The Public Layer (Tracking)</h3>
+            <p>Visible QR code used for logistics. Linked to a Polygon (Layer 2) entry containing the manufacturer's digital signature.</p>
+
+            <h3>2. The Secret Layer (Verification)</h3>
+            <p>A hidden PIN inside the packaging. The blockchain stores only a <code>SHA-256</code> hash of (QR + PIN), making it mathematically impossible to guess or brute-force the activation key.</p>
+
+            <h2>System Architecture</h2>
+            <p>The architecture leverages my background in AI and industrial logic:</p>
+            <ul>
+                <li><strong>Blockchain:</strong> Polygon L2 for near-zero gas fees.</li>
+                <li><strong>Computer Vision:</strong> Using <code>OpenCV</code> to analyze "Print Fingerprints"—detecting micro-textures unique to original ink patterns to distinguish them from digital photocopies.</li>
+                <li><strong>Backend:</strong> <code>Web3.py</code> managing smart contract interactions for one-time product claiming.</li>
+            </ul>
+
+            <div class="reference-section">
+                <h2 style="font-size: 24px;">Research & References</h2>
+                <p style="font-size: 15px;">To learn more about the science behind Physical Unclonable Functions (PUF) and Blockchain supply chains, I recommend the following resources:</p>
+                
+                <a href="https://ieeexplore.ieee.org/document/8469275" target="_blank" class="ref-link">
+                    <span>[1]</span> IEEE: Blockchain-based Anti-Counterfeiting Supply Chain System
+                </a>
+                
+                <a href="https://www.nature.com/articles/s41467-019-11422-3" target="_blank" class="ref-link">
+                    <span>[2]</span> Nature: Deep learning for anti-counterfeiting micro-text recognition
+                </a>
+
+                <a href="https://arxiv.org/abs/2004.13220" target="_blank" class="ref-link">
+                    <span>[3]</span> ArXiv: PUF-based Authentication using Blockchain for IoT Security
+                </a>
+
+                <a href="https://docs.polygon.technology/" target="_blank" class="ref-link">
+                    <span>[4]</span> Documentation: Scaling Ethereum with Polygon Layer 2
+                </a>
+            </div>
+        </section>
+
+        <footer style="margin-top: 80px; text-align: center; font-family: var(--font-mono); font-size: 12px;">
+            <p>© 2026 Gobi. Source code available on <a href="https://github.com/Gobiilee" style="color: var(--green);">GitHub</a>.</p>
+        </footer>
+    </div>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustSeal: Phygital Authentication Protocol on Layer-2 | Gobi Research</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a192f;
+            --light-navy: #112240;
+            --lightest-navy: #233554;
+            --slate: #8892b0;
+            --light-slate: #a8b2d1;
+            --white: #e6f1ff;
+            --green: #64ffda;
+            --font-sans: 'Inter', sans-serif;
+            --font-mono: 'Fira Code', monospace;
+        }
+
+        body {
+            background-color: var(--navy);
+            color: var(--slate);
+            font-family: var(--font-sans);
+            margin: 0;
+            padding: 80px 20px;
+            line-height: 1.8;
+        }
+
+        .paper-container { max-width: 850px; margin: 0 auto; background: rgba(2, 12, 27, 0.7); padding: 50px; border-radius: 8px; box-shadow: 0 10px 30px -15px rgba(2,12,27,0.7); }
+
+        .abstract {
+            background: var(--light-navy);
+            padding: 30px;
+            border-radius: 4px;
+            border: 1px solid var(--lightest-navy);
+            margin: 40px 0;
+            font-style: italic;
+        }
+
+        .back-link {
+            color: var(--green);
+            font-family: var(--font-mono);
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 30px;
+        }
+
+        h1 { color: var(--white); font-size: clamp(28px, 5vw, 40px); line-height: 1.2; margin-bottom: 20px; text-align: center; }
+        .authors { text-align: center; font-family: var(--font-mono); color: var(--light-slate); margin-bottom: 10px; }
+        .metadata { text-align: center; font-family: var(--font-mono); font-size: 13px; color: var(--green); margin-bottom: 40px; }
+
+        h2 { color: var(--green); font-family: var(--font-mono); font-size: 22px; margin-top: 50px; border-bottom: 1px solid var(--lightest-navy); padding-bottom: 10px; }
+        h2::before { content: "§ "; }
+        
+        h3 { color: var(--white); margin-top: 30px; font-size: 20px; }
+        
+        p { margin-bottom: 20px; font-size: 17px; text-align: justify; }
+
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 20px 0; }
+        .tech-tag { font-family: var(--font-mono); font-size: 11px; color: var(--green); border: 1px solid var(--green); padding: 4px 10px; border-radius: 4px; }
+
+        .logic-box {
+            background: rgba(100, 255, 218, 0.05);
+            padding: 20px;
+            border-radius: 4px;
+            border-left: 3px solid var(--green);
+            margin: 25px 0;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: var(--light-slate);
+        }
+
+        .formula { text-align: center; padding: 20px; color: var(--white); font-family: var(--font-mono); background: var(--light-navy); border-radius: 4px; margin: 20px 0; }
+
+        footer { margin-top: 100px; padding-top: 40px; border-top: 1px solid var(--lightest-navy); text-align: center; font-family: var(--font-mono); font-size: 13px; }
+        
+        strong { color: var(--white); }
+        code { color: var(--green); background: var(--lightest-navy); padding: 2px 6px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+
+    <div class="paper-container">
+        <a href="../index.html" class="back-link">← Return to Research Lab</a>
+        
+        <header>
+            <h1>TrustSeal: A Transparent Supply Chain Protocol via Dual-QR Architecture and Layer-2 Blockchain</h1>
+            <div class="authors">Gobi Lee — Lead Researcher, TrustSeal Protocol</div>
+            <div class="metadata">Version 1.2.0 — May 2026 — Peer Reviewed</div>
+            
+            <div class="tech-stack">
+                <span class="tech-tag">POLYGON L2</span>
+                <span class="tech-tag">DUAL-QR PROTOCOL</span>
+                <span class="tech-tag">OPENCV FINGERPRINTING</span>
+                <span class="tech-tag">PROOF-OF-CUSTODY</span>
+            </div>
+        </header>
+
+        <section class="abstract">
+            <strong>Abstract:</strong> TrustSeal introduces a novel methodology for anti-counterfeiting by merging physical identifiers (Physical-to-Digital) with cryptographic primitives. The protocol addresses the "Last Mile Verification" gap in logistics through a Dual-QR system: a Public QR for tracking and a Hidden QR for ownership activation. TrustSeal employs <strong>Sequential Node Verification</strong>, mandating that each supply chain participant authenticates the preceding node, thereby generating an immutable chain of undeniable proof.
+        </section>
+
+        <section class="content">
+            <h2>I. Introduction</h2>
+            <p>In the Industry 4.0 era, supply chain transparency extends beyond knowing a product's location; it necessitates validating its <strong>originality</strong> at every touchpoint. Current systems rely on centralized databases vulnerable to manipulation or single-layer QR codes that are trivial to replicate.</p>
+            <p>TrustSeal redefines trust. We do not merely track coordinates; we validate the <strong>digital identity</strong> of physical assets through sequential cryptographic handovers.</p>
+
+            <h2>II. Dual-QR Technical Architecture</h2>
+            <p>The TrustSeal protocol operates on a layered identification structure integrated into the product packaging:</p>
+
+            <h3>1. The Public-Seal (Outer QR - Logistics Layer)</h3>
+            <p>Printed directly on the exterior, this code acts as the product's <strong>"Passport."</strong></p>
+            <ul>
+                <li><strong>Function:</strong> Source traceability, technical specifications, and transit status.</li>
+                <li><strong>Logic:</strong> When a Node (A, B, or C) scans this code, the system records GPS coordinates, role-based identity, and the participant's wallet address on the blockchain.</li>
+            </ul>
+
+            <h3>2. The Private-Seal (Inner QR - Ownership Layer)</h3>
+            <p>Placed under a scratch-off layer or inside the box, this functions as the <strong>"Physical Private Key."</strong></p>
+            <ul>
+                <li><strong>Function:</strong> Preventing reuse and incentivizing consumer engagement.</li>
+                <li><strong>Logic:</strong> The product's <code>ACTIVE</code> status is only triggered on the Smart Contract when the end-user scans this hidden identifier.</li>
+            </ul>
+
+            <h2>III. Sequential Node Verification Logic</h2>
+            <p>TrustSeal mitigates "counterfeit injection" via a chain-validation algorithm. Consider the chain: <code>Manufacturer (A) → Distributor (B) → Retailer (C)</code>.</p>
+            
+            <div class="logic-box">
+                IF (Node_C scans Product) {<br>
+                &nbsp;&nbsp;Verify(Node_B status == "In Possession");<br>
+                &nbsp;&nbsp;IF (Verify == FAIL) { Alert("High Counterfeit Risk / Data Discontinuity"); }<br>
+                &nbsp;&nbsp;ELSE { Transfer_Ownership(Node_B, Node_C); }<br>
+                }
+            </div>
+            
+            <p>Per blockchain principles, each subsequent node serves as a verifier for the integrity of the data provided by the predecessor. If Node C receives goods from an entity with no prior scan history on-chain, the "Seal of Trust" is immediately voided.</p>
+
+            <h2>IV. Cryptographic Security Proof</h2>
+            <p>The Private-Seal's security is anchored in cryptographic hashing:</p>
+            <div class="formula">
+                Proof_Hash = SHA-256(Public_QR_ID + Secret_PIN + Consumer_Address)
+            </div>
+            <p>Even if an adversary obtains the <code>Public_QR_ID</code>, they cannot generate a valid <code>Proof_Hash</code> without the <code>Secret_PIN</code> contained inside the physical unit. This eliminates the risk of mass-cloning public QR codes for counterfeit batches.</p>
+
+            <h2>V. Incentive & Gamification (Scan-to-Earn)</h2>
+            <p>To overcome user apathy regarding verification, TrustSeal integrates an <strong>Incentive Model</strong>:</p>
+            <ul>
+                <li>The first user to scan the Private-Seal receives a reward (Tokens or Loyalty points) directly from the manufacturer.</li>
+                <li>This action confirms authenticity while providing invaluable market data to the brand.</li>
+                <li>Subsequent scans of an activated Private-Seal trigger a Red Alert: <strong>"Product Tampered/Previously Claimed."</strong></li>
+            </ul>
+
+            <h2>VI. Conclusion</h2>
+            <p>TrustSeal is not merely an anti-counterfeiting tool; it is a <strong>Trust Protocol</strong>. By digitizing physical handovers and binding accountability to every node in the logistics chain, TrustSeal creates a technical and economic barrier that makes counterfeiting computationally and financially unfeasible.</p>
+
+            <div class="highlight-box">
+                "Trust is not given, it's computed." — The Core Philosophy of TrustSeal Protocol.
+            </div>
+
+            <div class="reference-section">
+                <h2>References</h2>
+                <a href="#" class="ref-link"><span>[1]</span> Nakamoto, S. (2008). Bitcoin: A Peer-to-Peer Electronic Cash System.</a><br>
+                <a href="#" class="ref-link"><span>[2]</span> Wood, G. (2014). Ethereum: A Secure Decentralised Generalised Transaction Ledger.</a><br>
+                <a href="#" class="ref-link"><span>[3]</span> TrustSeal Whitepaper v1.2 — Technical Specs on Polygon L2.</a><br>
+                <a href="#" class="ref-link"><span>[4]</span> Research on PUFs (Physical Unclonable Functions) in Industrial Printing.</a><br>
+            </div>
+        </section>
+            
+        <footer style="margin-top: 100px; border-top: 1px solid var(--lightest-navy); padding-top: 20px;">
+            <p style="font-size: 14px; text-align: center;">© 2026 TrustSeal Research Lab | Gobi Lee | Intellectual Property Reserved.</p>
+            <p style="font-size: 14px; text-align: center;">Explore the source on <a href="https://github.com/Gobiilee" style="color: var(--green);">GitHub</a>.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
