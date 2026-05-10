@@ -95,7 +95,7 @@
 <body>
 
     <div class="container">
-        <a href="../index.html#projects" class="back-link">← Back to Projects</a>
+        <a href="../index.html#experience" class="back-link">← Back to Experience</a>
         
         <header>
             <h1>Blister Inspection</h1>
@@ -139,11 +139,26 @@
                 <li><strong>Resource Management:</strong> Continuous operation requires zero memory leaks and robust process management.</li>
             </ul>
 
-            <h2>2. Architecture: Power Through Decoupling</h2>
-            <p>I implemented the <strong>MVVM (Model-View-ViewModel)</strong> pattern to decouple the heavy backend logic from the modern QML user interface.</p>
-            
-            <p>To ensure system safety, the AI inference engine runs as a separate process managed via <code>QProcess</code>. This prevents an algorithmic crash from taking down the entire production line interface.</p>
+            <section>
+                <h2>2. Architecture: Power Through Decoupling</h2>
+                <p>
+                    I implemented the <strong>MVVM (Model-View-ViewModel)</strong> pattern to decouple the heavy computational backend logic from the modern QML user interface. 
+                    This separation ensures that the UI remains highly responsive even when the system is processing massive data throughput from high-speed production lines.
+                </p>
 
+                <figure style="text-align: center; margin: 20px 0;">
+                    <img src="img\MVVM.png" alt="MVVM System Architecture" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <figcaption style="margin-top: 10px; font-style: italic; color: #666;">
+                        System Architecture: Decoupling Backend Logic from QML UI via MVVM Pattern.
+                    </figcaption>
+                </figure>
+
+                <p>
+                    To maximize system reliability, the AI inference engine operates as a <strong>separate process</strong> managed via <code>QProcess</code>. 
+                    This architectural choice creates a "sandboxing" effect: even if a complex AI algorithm encounters an unexpected edge case and crashes, the core production line interface remains unaffected, preventing costly industrial downtime.
+                </p>
+
+            </section>
             <h2>3. Core Technical Implementations</h2>
             
             <h3>High-Performance Multithreading</h3>
